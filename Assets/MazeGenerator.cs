@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour {
 
+
     //上から見て縦、Z軸のオブジェクトの量
     public int vertical = 15;
     //上から見て横、X軸のオブジェクトの量

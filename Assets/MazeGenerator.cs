@@ -49,8 +49,8 @@ public class MazeGenerator : MonoBehaviour {
 
         //ランダムな数字を縦横分の2つ出す
         //0からだが、並ぶオブジェクトの内側から選びたいので1からにした
-        int ver1 = Random.Range(1, vertical - 1);
-        int hor1 = Random.Range(1, horizontal - 1);
+        int ver1 = 2 * Random.Range(0, (vertical - 1)/2) + 1;
+        int hor1 = 2 * Random.Range(0, (horizontal - 1)/2) + 1;
 
         //ランダムな数字からオブジェクトを検索してDestroyで消す
         GameObject start = GameObject.Find(ver1 + "-" + hor1);
@@ -59,7 +59,7 @@ public class MazeGenerator : MonoBehaviour {
         Debug.Log(start);
 
         //Minerを生成
-        GameObject minerObj = Instantiate(miner, Vector3.zero, Quaternion.identity);
+        GameObject minerObj = Instantiate(miner, Vector3.zero, Quaternion.identity); //Vector3.zero (0,0,0)と同じ意味
         //MinerオブジェクトのMinerスクリプトを取得
         Miner minerScr = minerObj.GetComponent<Miner>();
         //MinerスクリプトのMining関数に引数を送って実行させる

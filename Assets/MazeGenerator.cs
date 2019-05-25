@@ -6,9 +6,9 @@ public class MazeGenerator : MonoBehaviour {
 
 
     //上から見て縦、Z軸のオブジェクトの量
-    public int vertical = 15;
+    public int vertical = 11;
     //上から見て横、X軸のオブジェクトの量
-    public int horizontal = 15;
+    public int horizontal = 11;
 
     //Prefabを入れる欄を作る
     public GameObject cube;
@@ -22,7 +22,7 @@ public class MazeGenerator : MonoBehaviour {
 
     void Start () {
         //Cubeを並べるための基準になる位置
-        Vector3 pos = new Vector3(0, (float)-0.15, 0);
+        Vector3 pos = new Vector3((float)-0.10, (float)-0.05, (float)0.10);
 
          //Z軸にverticalの数だけ並べる
         for (vi = 0; vi < vertical; vi++)
@@ -35,11 +35,11 @@ public class MazeGenerator : MonoBehaviour {
                     //生成したものを配置する位置
                     new Vector3(
                         //X軸
-                        pos.x + hi * (float)0.015 ,
+                        pos.x + hi * (float)0.01 ,
                         //Y軸
                         pos.y,
                         //Z軸
-                        pos.z + vi * (float)0.015
+                        pos.z + vi * (float)0.01
                     //Quaternion.identityは無回転を指定する
                     ), Quaternion.identity);
 

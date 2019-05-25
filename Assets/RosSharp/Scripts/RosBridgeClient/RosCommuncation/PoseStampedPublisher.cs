@@ -24,6 +24,8 @@ namespace RosSharp.RosBridgeClient
 
         private Messages.Geometry.PoseStamped message;
 
+        Vector3 hitPos;
+
         protected override void Start()
         {
             base.Start();
@@ -58,9 +60,9 @@ namespace RosSharp.RosBridgeClient
         private Messages.Geometry.Point GetGeometryPoint(Vector3 position)
         {
             Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
-            geometryPoint.x = position.x;
-            geometryPoint.y = position.y;
-            geometryPoint.z = position.z;
+            geometryPoint.x = hitPos.x;
+            geometryPoint.y = hitPos.y;
+            geometryPoint.z = hitPos.z;
             return geometryPoint;
         }
 
@@ -74,5 +76,26 @@ namespace RosSharp.RosBridgeClient
             return geometryQuaternion;
         }
 
+        void OnCollisionEnter(Collision other)
+        {
+            foreach (ContactPoint point in other.contacts)
+            {
+                hitPos = point.point;
+                Debug.Log(hitPos); // ログを表示する
+            }
+
+        }
+        // 当たった時に呼ばれる関数
+        void OnCollisionStay(Collision collision)
+        {
+            Debug.Log("Hit"); // ログを表示する
+        }
+        void OnCollisionExit(Collision collision)
+        {
+            hitPos.x = 0;
+            hitPos.y = 0;
+            hitPos.z = 0;
+            Debug.Log("End"); // ログを表示する
+        }
     }
 }

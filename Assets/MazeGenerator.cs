@@ -14,15 +14,15 @@ public class MazeGenerator : MonoBehaviour {
     public GameObject cube;
 
     //for文でオブジェクトを縦横に並べるための変数
-    int vi;
-    int hi;
+    float vi;
+    float hi;
 
     //MinerのPrefabを入れるための変数
     public GameObject miner;
 
     void Start () {
         //Cubeを並べるための基準になる位置
-        Vector3 pos = new Vector3(0, 0, 0);
+        Vector3 pos = new Vector3(0, (float)-0.15, 0);
 
          //Z軸にverticalの数だけ並べる
         for (vi = 0; vi < vertical; vi++)
@@ -35,11 +35,11 @@ public class MazeGenerator : MonoBehaviour {
                     //生成したものを配置する位置
                     new Vector3(
                         //X軸
-                        pos.x + hi,
+                        pos.x + hi * (float)0.015 ,
                         //Y軸
                         pos.y,
                         //Z軸
-                        pos.z + vi
+                        pos.z + vi * (float)0.015
                     //Quaternion.identityは無回転を指定する
                     ), Quaternion.identity);
 

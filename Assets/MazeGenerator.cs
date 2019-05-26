@@ -22,7 +22,7 @@ public class MazeGenerator : MonoBehaviour {
 
     void Start () {
         //Cubeを並べるための基準になる位置
-        Vector3 pos = new Vector3((float)-0.10, (float)-0.05, (float)0.10);
+        Vector3 pos = new Vector3((float)-0.055, (float)-0.08, (float)0.10);
 
          //Z軸にverticalの数だけ並べる
         for (vi = 0; vi < vertical; vi++)

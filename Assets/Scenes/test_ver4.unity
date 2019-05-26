@@ -196,14 +196,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156908732}
-  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0.5}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
---- !u!1 &1376867885
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!1 &1319168199
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,8 +211,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1376867887}
-  - component: {fileID: 1376867886}
+  - component: {fileID: 1319168201}
+  - component: {fileID: 1319168200}
   m_Layer: 0
   m_Name: MazeGenerator
   m_TagString: Untagged
@@ -220,29 +220,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1376867886
+--- !u!114 &1319168200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376867885}
+  m_GameObject: {fileID: 1319168199}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6623847d610b5bc4a97a13e9480689f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertical: 15
-  horizontal: 15
+  vertical: 11
+  horizontal: 11
   cube: {fileID: 1257611478541892955, guid: c616dfec7b76db64d89aed72cbf72264, type: 3}
   miner: {fileID: 2579527639158378844, guid: 9969f70570d5566449ee46009026c388, type: 3}
---- !u!4 &1376867887
+--- !u!4 &1319168201
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376867885}
+  m_GameObject: {fileID: 1319168199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.063263655, y: 0.03296093, z: 0.02456493}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -426,13 +426,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554251324}
-  m_LocalRotation: {x: 0.9659259, y: -0, z: 0.258819, w: 0}
-  m_LocalPosition: {x: -1.71, y: -0.29, z: 1.63}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 180, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1770306997
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ Transform:
   m_GameObject: {fileID: 1770306997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.135, z: 0.135}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff98778ae051cfd40a6e4effdf851ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timeout: 1
+  Timeout: 0
   Protocol: 0
   RosBridgeServerUrl: ws://192.168.0.6:9090
 --- !u!54 &1770307004

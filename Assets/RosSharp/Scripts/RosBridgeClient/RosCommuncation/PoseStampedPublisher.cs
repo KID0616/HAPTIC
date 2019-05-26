@@ -24,7 +24,7 @@ namespace RosSharp.RosBridgeClient
 
         private Messages.Geometry.PoseStamped message;
 
-        Vector3 hitPos;
+        Vector3 hitNormal;
 
         protected override void Start()
         {
@@ -60,9 +60,9 @@ namespace RosSharp.RosBridgeClient
         private Messages.Geometry.Point GetGeometryPoint(Vector3 position)
         {
             Messages.Geometry.Point geometryPoint = new Messages.Geometry.Point();
-            geometryPoint.x = hitPos.x;
-            geometryPoint.y = hitPos.y;
-            geometryPoint.z = hitPos.z;
+            geometryPoint.x = hitNormal.x;
+            geometryPoint.y = hitNormal.y;
+            geometryPoint.z = hitNormal.z;
             return geometryPoint;
         }
 
@@ -76,25 +76,27 @@ namespace RosSharp.RosBridgeClient
             return geometryQuaternion;
         }
 
-        void OnCollisionEnter(Collision other)
+        void OnCollisionEnter(Collision collision)
         {
-            foreach (ContactPoint point in other.contacts)
+            foreach (ContactPoint contact in collision.contacts)
             {
-                hitPos = point.point;
-                Debug.Log(hitPos); // ログを表示する
+                if(contact.thisCollider.name  == name){
+                    hitNormal = contact.normal ;
+                }
+                Debug.Log(hitNormal); // ログを表示する
             }
 
         }
         // 当たった時に呼ばれる関数
         void OnCollisionStay(Collision collision)
         {
-            Debug.Log("Hit"); // ログを表示する
+            ///Debug.Log("Hit"); // ログを表示する
         }
         void OnCollisionExit(Collision collision)
         {
-            hitPos.x = 0;
-            hitPos.y = 0;
-            hitPos.z = 0;
+            hitNormal.x = 0;
+            hitNormal.y = 0;
+            hitNormal.z = 0;
             Debug.Log("End"); // ログを表示する
         }
     }

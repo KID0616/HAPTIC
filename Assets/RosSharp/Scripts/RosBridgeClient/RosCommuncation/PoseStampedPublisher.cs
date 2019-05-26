@@ -25,6 +25,7 @@ namespace RosSharp.RosBridgeClient
         private Messages.Geometry.PoseStamped message;
 
         Vector3 hitNormal;
+        public int flag = 0;
 
         protected override void Start()
         {
@@ -78,19 +79,24 @@ namespace RosSharp.RosBridgeClient
 
         void OnCollisionEnter(Collision collision)
         {
-            foreach (ContactPoint contact in collision.contacts)
-            {
+            if(flag == 0){
+                foreach (ContactPoint contact in collision.contacts)
+                
                 if(contact.thisCollider.name  == name){
                     hitNormal = contact.normal ;
                 }
                 Debug.Log(hitNormal); // ログを表示する
+                flag = 1;
             }
+                
 
         }
         // 当たった時に呼ばれる関数
         void OnCollisionStay(Collision collision)
         {
             ///Debug.Log("Hit"); // ログを表示する
+ 
+            
         }
         void OnCollisionExit(Collision collision)
         {
@@ -98,6 +104,7 @@ namespace RosSharp.RosBridgeClient
             hitNormal.y = 0;
             hitNormal.z = 0;
             Debug.Log("End"); // ログを表示する
+            flag = 0;
         }
     }
 }
